@@ -81,4 +81,3 @@ if __name__ == '__main__':
     except OperationalError:
         print('Using existing database')
     app.run(debug=True)
-
