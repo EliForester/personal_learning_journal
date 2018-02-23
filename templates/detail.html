@@ -1,0 +1,36 @@
+{% extends "default.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block body %}
+
+        <section>
+            <div class="container">
+                <div class="entry-list single">
+                    <article>
+                        <h1>{{ entry_detail.title }}</h1>
+                        <time datetime="{{ entry_detail.date }}">{{ entry_detail.date }}</time>
+                        <div class="entry">
+                            <h3>Time Spent: </h3>
+                            <p>{{ entry_detail.time_spent }}</p>
+                        </div>
+                        <div class="entry">
+                            <h3>What I Learned:</h3>
+                            <p>{{ entry_detail.learned }}</p>
+                        </div>
+                        <div class="entry">
+                            <h3>Resources to Remember:</h3>
+                            {{ entry_detail.resources }}
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="edit">
+                <p><a href="{{ url_for('edit', entry_id=entry_detail.id) }}">Edit Entry</a></p>
+            </div>
+            <div class="edit">
+                <p><a href="{{ url_for('delete', entry_id=entry_detail.id) }}">DELETE Entry</a></p>
+            </div>
+        </section>
+{% endblock %}
