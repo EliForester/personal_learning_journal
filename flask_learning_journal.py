@@ -20,6 +20,7 @@ def list_all():
 def new():
     new_entry_form = EntryForm()
     if request.method == 'POST':
+        # There could be much more data checking here
         if new_entry_form.title.data == '':
             flash('Please enter a valid title')
             return render_template('new.html', new_entry_form=new_entry_form)
